@@ -1,0 +1,93 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+// this file contains all ISFParticle inline methods
+
+namespace ISF {
+
+  // inline methods, nomen est omen
+  //
+  inline const Amg::Vector3D& FaserISFParticle::position() const { return m_position; }
+  inline const Amg::Vector3D& FaserISFParticle::momentum() const { return m_momentum; }
+  inline void FaserISFParticle::updatePosition(const Amg::Vector3D& position) { m_position=position; }
+  inline void FaserISFParticle::updateMomentum(const Amg::Vector3D& momentum) { m_momentum=momentum; }
+
+  inline double          FaserISFParticle::mass() const      { return m_mass; }
+  inline double          FaserISFParticle::charge() const    { return m_charge; }
+  inline double          FaserISFParticle::timeStamp() const { return m_tstamp; }
+  inline int             FaserISFParticle::pdgCode() const   { return m_pdgCode; }
+
+  inline double          FaserISFParticle::ekin() const      { return sqrt( m_momentum.mag2() + m_mass*m_mass ) - m_mass; }
+
+  // history methods
+  //
+  inline const FaserParticleHistory& FaserISFParticle::history()     const { return m_history;                    }
+  inline FaserDetDescr::FaserRegion  FaserISFParticle::originGeoID() const { return m_history.front().first;      }
+  inline SimSvcID                    FaserISFParticle::originSimID() const { return m_history.front().second;     }
+  inline FaserDetDescr::FaserRegion  FaserISFParticle::prevGeoID()   const { return (m_history.end()-1)->first;   }
+  inline SimSvcID                    FaserISFParticle::prevSimID()   const { return (m_history.end()-1)->second;  }
+  inline FaserDetDescr::FaserRegion  FaserISFParticle::nextGeoID()   const { return m_history.back().first;       }
+  inline SimSvcID                    FaserISFParticle::nextSimID()   const { return m_history.back().second;      }
+  inline void                        FaserISFParticle::setNextGeoID( FaserDetDescr::FaserRegion geoID) { m_history.back().first = geoID; }
+  inline void                        FaserISFParticle::setNextSimID( SimSvcID simID)                   { m_history.back().second = simID;}
+
+  // barcode methods
+  //
+  inline Barcode::ParticleBarcode FaserISFParticle::barcode() const { return m_barcode; }
+  inline void            FaserISFParticle::setBarcode(Barcode::ParticleBarcode bc) { m_barcode = bc; }
+
+  // truth methods
+  //
+  inline TruthBinding* FaserISFParticle::getTruthBinding() const              { return m_truth; }
+  inline void          FaserISFParticle::setTruthBinding(TruthBinding *truth) { m_truth = truth; }
+
+  // particle order methods
+  //
+  inline int  FaserISFParticle::getOrder() const { return m_order; }
+  inline void FaserISFParticle::setOrder( ParticleOrder order ) { m_order = order; }
+
+  // set ParticleUserInformation
+  inline ParticleUserInformation *FaserISFParticle::getUserInformation() const                            { return m_userInfo;    }
+  inline void                     FaserISFParticle::setUserInformation(ParticleUserInformation *userInfo)
+  {
+    if ( m_userInfo==0 ) { m_userInfo = userInfo; }
+    else {
+      m_userInfo->setGeneration( userInfo->generation() );
+      m_userInfo->setProcess( userInfo->process() );
+      // don't overwrite barcode
+    }
+  }
+
+  // bunch-crossing identifier
+  inline int FaserISFParticle::getBCID() const {
+    return m_bcid;
+  }
+  inline void FaserISFParticle::setBCID(int bcid) {
+    m_bcid = bcid;
+  }
+
+  // printout methods
+  inline MsgStream& FaserISFParticle::dump( MsgStream& out ) const
+  { out << "ISFP pdg=" << m_pdgCode << " p=" << m_momentum.mag()
+        << " xyz=(" << m_position.x() << "," <<  m_position.y() << "," <<  m_position.z() << ")"
+        << " r=" << m_position.perp() << " eta=" << m_position.eta() << " phi=" << m_position.phi()
+        << " barcode=" << m_barcode << " mass=" << m_mass << " order=" << m_order << " bcid=" << m_bcid;
+    if (m_partLink)
+      out << " (" << *m_partLink << ")";
+    else
+      out << " (No assoc. HMPL)";
+    return out;}
+
+  inline std::ostream& FaserISFParticle::dump( std::ostream& out ) const
+  { out << "ISFP pdg=" << m_pdgCode << " p=" << m_momentum.mag()
+        << " xyz=(" << m_position.x() << "," <<  m_position.y() << "," <<  m_position.z() << ")"
+        << " r=" << m_position.perp() << " eta=" << m_position.eta() << " phi=" << m_position.phi()
+        << " barcode=" << m_barcode << " mass=" << m_mass << " order=" << m_order << " bcid=" << m_bcid;
+    if (m_partLink)
+      out << " (" << *m_partLink << ")";
+    else
+      out << " (No assoc. HMPL)";
+    return out;}
+
+} // end ISF namespace

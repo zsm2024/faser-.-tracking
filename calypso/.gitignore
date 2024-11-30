@@ -1,0 +1,25 @@
+# Ignore the most common extra files that can
+# be produced while developing
+# (copy of athena file)
+*~
+*.sw?
+#*
+.DS_Store
+.pydevproject
+.project
+*.pyc
+.asetup*
+.cproject
+*.kdevelop
+#Binary formats
+*.so*
+*.out
+*.exe*
+*.a
+*.la
+*.lib
+*.root
+tmp.*
+.idea/**
+cmake-debug-build/**
+.vscode/**

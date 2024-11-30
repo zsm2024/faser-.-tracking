@@ -1,0 +1,6 @@
+<lcgdict>
+  <class name="Tracker::FaserSCT_SpacePoint" >
+  </class>    
+  <class name="FaserSCT_SpacePointCollection<Tracker::FaserSCT_SpacePoint>" id="B1069307-0EEF-48D8-B545-A47D2DFFD8FC" />
+  <class name="FaserSCT_SpacePointContainer" />
+ </lcgdict>

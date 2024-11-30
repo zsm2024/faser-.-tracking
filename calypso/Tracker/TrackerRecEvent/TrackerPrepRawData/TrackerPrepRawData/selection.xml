@@ -1,0 +1,65 @@
+<lcgdict>
+  <!-- for cluster -->
+  <!-- Si width used for SiCluster -->
+  <class name="Tracker::FaserSiWidth" />  
+  
+  <!-- Si cluster (parent of SCT) -->
+  <class name="Tracker::TrackerCluster" >
+    <field name="m_width"          transient="false" />
+    <field name="m_globalPosition" transient="true" />
+    <field name="m_gangedPixel"    transient="true" />
+    <field name="m_detEl"          transient="true" />
+  </class>
+
+  <class name="Trk::PrepRawDataCollection< Tracker::TrackerCluster >"  />
+  <class name="DataVector<Tracker::TrackerCluster>"   />
+  <class name="std::vector<Tracker::TrackerCluster*>"  />
+
+  <class name="Tracker::TrackerClusterContainer" />   
+  
+  <class name="IdentifiableContainer<Trk::PrepRawDataCollection<Tracker::TrackerCluster> >" />
+  
+  <class name="DataLinkVector<Trk::PrepRawDataCollection<Tracker::TrackerCluster> >" >
+    <field name="m_last"   transient="true" />
+    <field name="m_vect"   transient="true" />
+  </class>
+
+  <class name="DataVector<Trk::PrepRawDataCollection<Tracker::TrackerCluster> >" id="185DC2D5-0448-4C19-BCEA-4C2774D1A585" />  <!--was:2DB8F9D6-B403-4C4C-9BBF-8D4E74316C9A -->
+  <class name="std::vector<DataLinkVector<Trk::PrepRawDataCollection<Tracker::TrackerCluster> >::Entry>" />
+  <class name="std::vector<Trk::PrepRawDataCollection<Tracker::TrackerCluster>* >" /> 
+ 
+  <!-- SCT -->
+  <class name="Tracker::FaserSCT_Cluster" />
+  
+  <class name="Trk::PrepRawDataCollection< Tracker::FaserSCT_Cluster >" />   
+  <class name="DataVector<Tracker::FaserSCT_Cluster>"  />
+  <class name="std::vector<Tracker::FaserSCT_Cluster*>"  />
+  
+  <class name="Tracker::FaserSCT_ClusterContainer" />  
+
+  <class name="IdentifiableContainer<Trk::PrepRawDataCollection<Tracker::FaserSCT_Cluster> >" />  
+
+  <class name="DataLinkVector<Trk::PrepRawDataCollection<Tracker::FaserSCT_Cluster> >" >
+    <field name="m_last"   transient="true" />
+    <field name="m_vect"   transient="true" />
+  </class>
+
+  <class name="std::vector<DataLinkVector<Trk::PrepRawDataCollection<Tracker::FaserSCT_Cluster> >::Entry>" />
+  <class name="DataVector<Trk::PrepRawDataCollection<Tracker::FaserSCT_Cluster> >"                       id="586ED4E3-FA8F-4A9D-A919-9D42221975B8"/>  <!-- was: A180F372-0D52-49C3-8AA0-0939CB0B8179 -->
+  <class name="std::vector<Trk::PrepRawDataCollection<Tracker::FaserSCT_Cluster>* >" />
+    
+  
+  <class name="ElementLink<Tracker::FaserSCT_ClusterContainer>"/>
+  <class name="ElementLink<Tracker::FaserSCT_ClusterContainer>::Base"/>
+  
+  <class name="PrdWrapper<Tracker::FaserSCT_ClusterContainer>::prd_iterator" />
+  <class name="PrdWrapper<Tracker::FaserSCT_ClusterContainer>::prd_entry" />
+  <class name="PrdWrapper<Tracker::FaserSCT_ClusterContainer>::prd_data_holder" />
+
+  <class name="PrdWrapper<Tracker::TrackerClusterContainer>::prd_iterator" />
+  <class name="PrdWrapper<Tracker::TrackerClusterContainer>::prd_entry" />
+  <class name="PrdWrapper<Tracker::TrackerClusterContainer>::prd_data_holder" />
+
+</lcgdict>
+
+

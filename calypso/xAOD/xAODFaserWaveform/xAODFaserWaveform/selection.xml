@@ -1,0 +1,24 @@
+<!-- Copyright (C) 2020 CERN for the benefit of the FASER collaboration -->
+<lcgdict>
+
+  <class name="xAOD::WaveformHit_v1" />
+  <typedef name="xAOD::WaveformHit" />
+
+  <class name="xAOD::WaveformHitContainer_v1" 
+	 id="fb49e082-7130-462f-9500-de9a2aef8a24" />
+  <typedef name="xAOD::WaveformHitContainer" />
+
+  <class name="xAOD::WaveformHitAuxContainer_v1" 
+	 id="091007bd-f4ab-4862-b905-1a0ed96c962f" />
+  <typedef name="xAOD::WaveformHitAuxContainer" />
+
+  <class name="xAOD::WaveformClock_v1" 
+	 id="461aa5ca-6c72-46ee-b5d5-5bd6df4e2848" />
+  <typedef name="xAOD::WaveformClock" />
+
+  <class name="xAOD::WaveformClockAuxInfo_v1" 
+	 id="fe0600cc-f2f3-4be5-9723-257646dbb8f7" />
+  <typedef name="xAOD::WaveformClockAuxInfo" />
+
+
+</lcgdict>

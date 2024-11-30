@@ -1,0 +1,16 @@
+<!-- Copyright (C) 2020 CERN for the benefit of the FASER collaboration -->
+<lcgdict>
+
+  <class name="xAOD::CalorimeterHit_v1" />
+  <typedef name="xAOD::CalorimeterHit" />
+
+  <class name="xAOD::CalorimeterHitContainer_v1" 
+	 id="1172f311-f09a-4e3b-a946-68991c2c0646" />
+  <typedef name="xAOD::CalorimeterHitContainer" />
+
+  <class name="xAOD::CalorimeterHitAuxContainer_v1" 
+	 id="755f71cf-2148-4736-b26e-3c007d627861" />
+  <typedef name="xAOD::CalorimeterHitAuxContainer" />
+
+
+</lcgdict>

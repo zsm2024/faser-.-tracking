@@ -1,0 +1,48 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+#include "FaserCaloSimEvent/CaloHit.h"
+#include "CaloReadoutGeometry/CaloDetectorElement.h"
+#include "CaloReadoutGeometry/EcalDetectorManager.h"
+#include "StoreGate/StoreGateSvc.h"
+#include "StoreGate/StoreGateSvc.h"
+#include "FaserCaloIdentifier/EcalID.h"
+#include "GeoPrimitives/CLHEPtoEigenConverter.h"
+
+inline void GeoFaserCaloHit::init() {
+
+  ServiceHandle<StoreGateSvc> detStore ("DetectorStore", "GeoFaserCaloHit");
+  if (detStore.retrieve().isSuccess()) {
+    if(detStore->retrieve(s_ecal,"Ecal").isFailure())
+      s_ecal = 0;
+    if(detStore->retrieve(s_eID,"EcalID").isFailure())
+      s_eID = 0;
+  }
+}
+
+inline GeoFaserCaloHit::GeoFaserCaloHit (const CaloHit & h) {
+  m_hit = &h;
+  if (!s_ecal) init();
+}
+
+inline HepGeom::Point3D<double> GeoFaserCaloHit::getGlobalPosition() const {
+
+  int row = m_hit->getRow();
+  Identifier id;
+  const CaloDD::CaloDetectorElement *geoelement=NULL;
+  id = s_eID->module_id(row, m_hit->getModule());
+  geoelement = s_ecal->getDetectorElement(id);  
+
+  if (geoelement) {
+
+    const HepGeom::Point3D<double> globalStartPos = Amg::EigenTransformToCLHEP(geoelement->transformHit()) * HepGeom::Point3D<double>(m_hit->localStartPosition());
+    
+    double x=globalStartPos.x();
+    double y=globalStartPos.y();
+    double z=globalStartPos.z();
+    return HepGeom::Point3D<double>(x,y,z);
+  }
+
+  return HepGeom::Point3D<double>(0.0,0.0,0.0);
+}

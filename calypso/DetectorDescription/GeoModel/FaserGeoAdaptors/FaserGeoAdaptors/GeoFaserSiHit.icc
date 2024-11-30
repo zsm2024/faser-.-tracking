@@ -1,0 +1,52 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+#include "TrackerSimEvent/FaserSiHit.h"
+#include "TrackerReadoutGeometry/SiDetectorElement.h"
+#include "TrackerReadoutGeometry/SCT_DetectorManager.h"
+#include "StoreGate/StoreGateSvc.h"
+#include "StoreGate/StoreGateSvc.h"
+#include "TrackerIdentifier/FaserSCT_ID.h"
+#include "GeoPrimitives/CLHEPtoEigenConverter.h"
+
+inline void GeoFaserSiHit::init() {
+
+  ServiceHandle<StoreGateSvc> detStore ("DetectorStore", "GeoFaserSiHit");
+  if (detStore.retrieve().isSuccess()) {
+    if(detStore->retrieve(s_sct,"SCT").isFailure())
+      s_sct = 0;
+    if(detStore->retrieve(s_sID,"FaserSCT_ID").isFailure())
+      s_sID = 0;
+  }
+}
+
+inline GeoFaserSiHit::GeoFaserSiHit (const FaserSiHit & h) {
+  m_hit = &h;
+  if (!s_sct) init();
+}
+
+inline HepGeom::Point3D<double> GeoFaserSiHit::getGlobalPosition() const {
+
+  Identifier id;
+  const TrackerDD::SiDetectorElement *geoelement=NULL;
+  id = s_sID->wafer_id(m_hit->getStation(),
+        	m_hit->getPlane(), 
+			m_hit->getRow(), 
+			m_hit->getModule(), 
+			m_hit->getSensor() );
+  geoelement = s_sct->getDetectorElement(id);      
+  
+  
+  if (geoelement) {
+
+    const HepGeom::Point3D<double> globalStartPos = Amg::EigenTransformToCLHEP(geoelement->transformHit()) * HepGeom::Point3D<double>(m_hit->localStartPosition());
+    
+    double x=globalStartPos.x();
+    double y=globalStartPos.y();
+    double z=globalStartPos.z();
+    return HepGeom::Point3D<double>(x,y,z);
+  }
+
+  return HepGeom::Point3D<double>(0.0,0.0,0.0);
+}

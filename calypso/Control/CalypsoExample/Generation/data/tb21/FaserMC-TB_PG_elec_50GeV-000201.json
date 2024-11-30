@@ -1,0 +1,14 @@
+{
+    "file_length": 1000,
+    "geom": "TestBeamMC",
+    "mass": 0.511,
+    "maxE": 50.0,
+    "minE": 50.0,
+    "pid": [-11, 11],
+    "radius": -100.0,
+    "run": 201,
+    "sampler": "const",
+    "segment": 0,
+    "short": "TB_PG_elec_50GeV",
+    "zpos": -1000.0
+}

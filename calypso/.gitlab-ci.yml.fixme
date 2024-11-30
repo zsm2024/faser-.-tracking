@@ -1,0 +1,53 @@
+variables:
+  # all submodules will be cloned recursively upon start of CI job
+  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SSL_NO_VERIFY: "true"
+  ATLAS_LOCAL_ROOT_BASE: /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
+
+stages:
+  - build
+  - test
+
+##########################
+# BUILD stage            #                                
+##########################
+
+build_image:
+  # description: triggers a build of the project as a Docker image,
+  #              each branch will have an individual Docker image that will be used
+  #              in the following stages of the pipeline for testing the code
+  image:
+    name: gitlab-registry.cern.ch/linuxsupport/cc7-base:latest
+  stage: build
+  tags:
+    - k8s-cvmfs
+  script:
+    - yum -y install redhat-lsb redhat-lsb-core man uuid-devel libuuid libuuid-devel mesa-libGL-devel libXpm-devel
+    - mkdir build
+    - cd build
+    - set +e && source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh; set -e
+    - set +e && asetup --input=../../calypso/asetup.faser Athena,24.0.41; set -e
+    - cmake ../../calypso
+    - make -j 3
+  artifacts:
+    paths:
+    - build/
+
+test_unittest:
+  image:
+    name: gitlab-registry.cern.ch/linuxsupport/cc7-base:latest
+  stage: test
+  tags:
+    - k8s-cvmfs
+  script: 
+    - yum -y install man git make cmake3 gcc-c++ gcc binutils libX11-devel libXpm-devel libXft-devel libXext-devel python openssl-devel
+    - cd build
+    - set +e && source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh; set -e
+    - set +e && asetup --input=../../calypso/asetup.faser Athena,24.0.41; set -e 
+    - set +e && source `find . -name 'setup.sh'`; set -e
+    - ctest -j3
+  dependencies:
+    - build_image
+  artifacts:
+    paths:
+      - LastTest.log

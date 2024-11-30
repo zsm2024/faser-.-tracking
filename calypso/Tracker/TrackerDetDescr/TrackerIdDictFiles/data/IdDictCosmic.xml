@@ -1,0 +1,51 @@
+<IdDictionary name="Tracker" version="Faser">
+
+  <field name="part">
+    <label name="SCT"        value="1" />
+  </field>
+
+<!-- No interface detector in this version -->
+
+  <field name="station" >
+    <label name="Central"   value="2" />
+  </field>
+
+  <field name="layer" >
+    <label name="Upstream"   value="0" />
+    <label name="Central"    value="1" />
+    <label name="Downstream" value="2" />
+  </field>
+
+  <field name="phi_module">
+    <label name="Bottom"       value="0" /> 
+    <label name="LowerMiddle"  value="1" />
+    <label name="UpperMiddle"  value="2" />
+    <label name="Top"          value="3" />
+  </field>
+
+  <field name="eta_module">
+  <!-- facing downstream (hence "starboard" and "port")
+       x must increase right to left for a right-handed
+       coordinate system -->
+  <!-- numbers straddle zero for consistency with ATLAS -->       
+    <label name="Starboard"   value="-1" />
+    <label name="Port"        value="+1" />
+  </field>
+
+  <field name="side">
+  <!-- The "upper" side is the side with the pigtail -->
+    <label name="Upper"    value="0" />
+    <label name="Lower"    value="1" />
+  </field>
+
+  <region>
+    <range field="part"       value="SCT" />
+    <range field="station"    values="Central" />
+    <range field="layer"      values="Upstream Central Downstream" />
+    <range field="phi_module" values="Bottom LowerMiddle UpperMiddle Top" wraparound="FALSE" />
+    <range field="eta_module" values="Starboard Port" wraparound="FALSE" />
+    <range field="side"       values="Upper Lower" />
+    <range field="strip"      minvalue="0" maxvalue="767" />
+  </region>
+
+</IdDictionary>

@@ -1,0 +1,8 @@
+<lcgdict>
+
+    <!-- NeutrinoHits -->
+    <class name="NeutrinoHit_p1" />
+    <class name="std::vector<NeutrinoHit_p1>" />
+    <class name="NeutrinoHitCollection_p1" id="2CA7AF71-1494-4378-BED4-AFB5C54398AA" />
+    <class name="NeutrinoHitCollection_p1a" id="0A3CD37D-64CE-405D-98CF-595D678B14B7" />
+</lcgdict>

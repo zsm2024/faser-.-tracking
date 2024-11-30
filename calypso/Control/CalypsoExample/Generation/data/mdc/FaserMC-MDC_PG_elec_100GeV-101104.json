@@ -1,0 +1,14 @@
+{
+    "file_length": 1000,
+    "mass": 0.511,
+    "maxE": 100.0,
+    "minE": 100.0,
+    "pid": [-11, 11],
+    "radius": -20.0,
+    "angle": 0.001,
+    "run": 101104,
+    "sampler": "const",
+    "segment": 0,
+    "short": "MDC_PG_elec_100GeV",
+    "zpos": -1000.0
+}

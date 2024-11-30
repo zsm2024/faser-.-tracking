@@ -1,0 +1,158 @@
+/*
+  Copyright (C) 2002-2019 CERN for the benefit of the ATLAS collaboration
+*/
+
+#ifndef G4FASERALG_G4FaserAlg_H
+#define G4FASERALG_G4FaserAlg_H
+
+// Base class header
+#include "AthenaBaseComps/AthAlgorithm.h"
+
+// STL headers
+#include <map>
+#include <string>
+
+// Gaudi headers
+#include "GaudiKernel/ServiceHandle.h"
+#include "GaudiKernel/ToolHandle.h"
+
+// Athena headers
+#include "CxxUtils/checker_macros.h"
+#include "StoreGate/ReadHandleKey.h"
+#include "StoreGate/WriteHandleKey.h"
+#include "AthenaKernel/IAthRNGSvc.h"
+#include "G4AtlasInterfaces/IUserActionSvc.h"
+#include "G4AtlasInterfaces/IDetectorGeometrySvc.h"
+#include "G4AtlasInterfaces/ISensitiveDetectorMasterTool.h"
+#include "G4AtlasInterfaces/IFastSimulationMasterTool.h"
+#include "G4AtlasInterfaces/IPhysicsListSvc.h"
+#include "G4AtlasInterfaces/IUserLimitsSvc.h"
+#include "GeneratorObjects/McEventCollection.h"
+#include "HepMC_Interfaces/IZeroLifetimePatcher.h"
+#include "xAODEventInfo/EventInfo.h"
+
+// ISF includes
+#include "FaserISF_Interfaces/IFaserTruthSvc.h"
+#include "FaserISF_Interfaces/IFaserGeoIDSvc.h"
+#include "FaserISF_Interfaces/IFaserInputConverter.h"
+#include "ISF_Interfaces/IGenEventFilter.h"
+
+/// @class G4FaserAlg
+/// @brief Primary Calypso algorithm for FASER simulation.
+///
+/// During initialization, this class sets up several things, including:
+/// - the FASER (master) run manager
+/// - physics list assignment to G4
+/// - detector construction (currently FADS::FadsDetectorConstruction)
+///
+/// During the event loop, it handles processing of the event by
+/// invoking the (worker) run manager.
+///
+class G4FaserAlg : public AthAlgorithm
+{
+
+public:
+
+  /// Standard algorithm constructor
+  G4FaserAlg(const std::string& name, ISvcLocator* pSvcLocator);
+
+  /// Virtual destructor
+  virtual ~G4FaserAlg() {  };
+
+  /// this Alg is Clonable (for AthenaMT)
+  bool isClonable() const override { return true; }
+
+  /// @brief Initialize the algorithm.
+  ///
+  /// Here we setup several things for simulation, including:
+  /// - force intialization of the UserActionSvc
+  /// - apply custom G4 UI commands (like custom physics list)
+  /// - configure the particle generator and random generator svc
+  StatusCode initialize ATLAS_NOT_THREAD_SAFE () override;
+  /// Finalize the algorithm and invoke G4 run termination.
+  StatusCode finalize() override;
+
+  /// @brief Simulate one Athena event.
+  StatusCode execute() override;
+
+  /// Poorly named possibly unused method which sets some verbosities.
+  void initializeG4();
+
+  /// G4 initialization called only by the first alg instance.
+  /// This is done (for now) because we get multiple alg instances in hive.
+  void initializeOnce();
+
+  /// G4 finalization called only by the first alg instance.
+  /// This is done (for now) because we get multiple alg instances in hive.
+  void finalizeOnce();
+
+private:
+
+  /// This command prints a message about a G4Command depending on its returnCode
+  void commandLog(int returnCode, const std::string& commandString) const;
+
+  /// Releases the GeoModel geometry from memory once it has been used
+  /// to build the G4 geometry and is no-longer required
+  void releaseGeoModel();
+
+  /// @name Configurable Properties
+  /// @{
+  Gaudi::Property<bool> m_killAbortedEvents{this, "KillAbortedEvents", false, ""};
+  Gaudi::Property<bool> m_flagAbortedEvents{this, "FlagAbortedEvents", false, ""};
+  SG::ReadHandleKey<McEventCollection>    m_inputTruthCollectionKey{this, "InputTruthCollection", "BeamTruthEvent", "Input hard scatter collection"}; //!< input hard scatter collection
+  SG::WriteHandleKey<McEventCollection>   m_outputTruthCollectionKey{this, "OutputTruthCollection", "TruthEvent", "Output hard scatter truth collection"};//!< output hard scatter truth collection
+  SG::ReadHandleKey<xAOD::EventInfo> m_eventInfoKey{this, "EventInfo", "EventInfo", "EventInfo key"};
+  /// Central Truth Service
+  ServiceHandle<ISF::IFaserTruthSvc> m_truthRecordSvc{this, "TruthRecordService", "ISF_FaserTruthRecordSvc", ""};
+  /// Geo ID Service
+  ServiceHandle<ISF::IFaserGeoIDSvc> m_geoIDSvc{this, "GeoIDSvc", "ISF_FaserGeoIDSvc", ""};
+
+  /// Verbosity settings for Geant4
+  std::map<std::string,std::string> m_verbosities;
+  /// @}
+
+  /// @name Configurable Properties (common with TransportTool)
+  /// @{
+  Gaudi::Property<std::string> m_libList{this, "Dll", "", ""};
+  Gaudi::Property<std::string> m_physList{this, "Physics", "", ""};
+  Gaudi::Property<std::string> m_fieldMap{this, "FieldMap", "", ""};
+  Gaudi::Property<std::string> m_rndmGen{this, "RandomGenerator", "athena", ""};
+  Gaudi::Property<bool> m_releaseGeoModel{this, "ReleaseGeoModel", true, ""};
+  Gaudi::Property<bool> m_recordFlux{this, "RecordFlux", false, ""};
+  /// Commands to send to the G4 UI
+  Gaudi::Property<std::vector<std::string> > m_g4commands{this, "G4Commands", {}, "Commands to send to the G4UI"};
+  /// Activate multi-threading configuration
+  Gaudi::Property<bool> m_useMT{this,"MultiThreading",  false, "Multi-threading specific settings"};
+  Gaudi::Property<bool> m_activateParallelGeometries{this, "ActivateParallelWorlds", false, "Toggle on/off the G4 parallel geometry system"};
+  BooleanProperty m_useShadowEvent{this, "UseShadowEvent", false, "New approach to selecting particles for simulation" };
+  /// Dump GDML file
+  Gaudi::Property<std::string> m_gdmlFilename{this, "GDMLfile", "", "GDML geometry file to write"};
+  /// Random number service
+  ServiceHandle<IAthRNGSvc> m_rndmGenSvc{this, "AtRndmGenSvc", "AthRNGSvc", ""}; // TODO rename property
+  /// Random Stream Name
+  Gaudi::Property<std::string> m_randomStreamName{this, "RandomStreamName", "Geant4", ""};
+  ///
+  ServiceHandle<IUserLimitsSvc> m_userLimitsSvc{this, "UserLimitsSvc", "UserLimitsSvc", ""};
+  /// User Action Service
+  ServiceHandle<G4UA::IUserActionSvc> m_userActionSvc{this, "UserActionSvc", "G4UA::UserActionSvc", ""};
+  /// Detector Geometry Service (builds G4 Geometry)
+  ServiceHandle<IDetectorGeometrySvc> m_detGeoSvc{this, "DetGeoSvc", "DetectorGeometrySvc", ""};
+
+  /// Quasi-Stable Particle Simulation Patcher
+  ServiceHandle<Simulation::IZeroLifetimePatcher> m_qspatcher{this, "QuasiStablePatcher", "", "Quasi-Stable Particle Simulation Patcher"};
+
+  ToolHandle<ISF::IGenEventFilter>  m_truthPreselectionTool{this, "TruthPreselectionTool", "", "Tool for filtering out quasi-stable particle daughters"};
+
+  /// Service to convert ISF_Particles into a G4Event
+  ServiceHandle<ISF::IFaserInputConverter> m_inputConverter{this, "InputConverter", "ISF_FaserInputConverter", ""};
+  /// Physics List Tool
+  ServiceHandle<IPhysicsListSvc> m_physListSvc{this, "PhysicsListSvc", "FaserPhysicsListSvc", ""};
+  /// Sensitive Detector Master Tool
+  PublicToolHandle<ISensitiveDetectorMasterTool> m_senDetTool{this, "SenDetMasterTool", "SensitiveDetectorMasterTool", ""};
+  /// Fast Simulation Master Tool
+  // PublicToolHandle<IFastSimulationMasterTool> m_fastSimTool{this, "FastSimMasterTool", "FastSimulationMasterTool", ""};
+  /// @}
+  PublicToolHandleArray<G4UA::IUserActionTool> m_actionTools{this, "UserActionTools", {}, "User action tools to be added to the G4 Action service."};
+};
+
+#endif// G4FASERALG_G4FaserAlg_H

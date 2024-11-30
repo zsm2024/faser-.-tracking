@@ -1,0 +1,11 @@
+Things to do:
+-) Add some structure to the JSON config file, in particular, create
+   some kind of set structure that will be reflected in ROOT file,
+   but also groups monitored quantities by type.
+
+-) Remove JSON text from ROOT file (or store in separate structure)
+
+-) Figure out how to read ntuple variables.  Possibly have a 'handler' by 
+   data type, i.e. TruthParticle or SpacePoints.  These will know how to 
+   decode variables by simple string, and also might have their own config
+   parameters to be set.

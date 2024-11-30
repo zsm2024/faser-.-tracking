@@ -1,0 +1,17 @@
+<lcgdict>
+  <class name="std::vector<HepMcParticleLink_p2>" />
+  <class name="TrackerSimData_p2" />
+  <class pattern="std::*pair*<unsigned int, TrackerSimData_p2>" />
+  <class name="std::vector<std::pair<unsigned int, TrackerSimData_p2> >" />
+  <class pattern="std::*pair*<unsigned long long, TrackerSimData_p2>" />
+  <class name="std::vector<std::pair<unsigned long long, TrackerSimData_p2> >" />
+  <class name="TrackerSimDataCollection_p3" id="E25FFB08-56F4-4594-B005-45200A725CD4" />
+  <class name="TrackerRawData_p2" />
+  <class name="FaserSCT3_RawData_p4" />
+  <class name="TrackerRawDataCollection_p1" />
+  <class name="std::vector<TrackerRawData_p2>" />
+  <class name="std::vector<FaserSCT3_RawData_p4>" />
+  <class name="TrackerRawDataContainer_p2" id="41607916-86F6-45A3-B857-4DAFA0EF4518" />
+  <class name="FaserSCT_RawDataContainer_p4" id="45BE54C2-46EF-4B43-AF87-7F10B52F9487" />
+  <class name="std::vector<TrackerRawDataCollection_p1>" />
+</lcgdict>

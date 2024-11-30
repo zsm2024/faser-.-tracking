@@ -1,0 +1,9 @@
+This package can be used to write out the data from simulated hits and from
+tracks reconstructed with the TrackerSegmentFit algorithm.
+
+To write out information for the simulated hits run G4FaserAlgConfig_Test.py
+to simulate hits and TrackerTruthDbg.py to write out the information.
+
+To write out information for the tracks run G4FaserAlgConfig_Test.py to
+simulate hits, FaserSCT_DigitizationDbg.py to digitize them and
+TrackerSegmentFitDbg.py to write out the information.

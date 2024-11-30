@@ -1,0 +1,9 @@
+<lcgdict>
+<!--
+  <class name="ScintillatorID" />
+-->
+  <class name="VetoID" />
+  <class name="VetoNuID" />
+  <class name="TriggerID" />
+  <class name="PreshowerID" />
+</lcgdict>

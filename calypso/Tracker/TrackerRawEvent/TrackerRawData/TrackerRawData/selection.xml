@@ -1,0 +1,31 @@
+<lcgdict>
+  <class name="TrackerRawData" />
+  <class name="FaserSCT1_RawData" />
+  <class name="FaserSCT_RDORawData" />
+
+  <class name="DataVector<FaserSCT1_RawData>" />
+  <class name="std::vector<FaserSCT1_RawData*>" />
+  <class name="std::vector<FaserSCT_RDORawData*>" />
+
+  <class name="IdentifiableContainer<TrackerRawDataCollection<FaserSCT_RDORawData> >" />
+
+  <class name="DataLinkVector<TrackerRawDataCollection<FaserSCT_RDORawData> >" >
+    <field name="m_last" transient="true" />
+    <field name="m_vect" transient="true" />
+  </class>
+
+  <class name="TrackerRawDataCollection< FaserSCT1_RawData >"  />
+  <class name="TrackerRawDataCollection< FaserSCT_RDORawData >"  />
+
+
+  <class name="TrackerRawDataContainer<TrackerRawDataCollection<FaserSCT_RDORawData> >" />
+
+
+  <!-- Need this to read old data -->
+  <class name="std::vector<TrackerRawDataCollection< FaserSCT1_RawData >* >" />
+  <!-- <class name="DataVector<InDetRawDataCollection< SCT1_RawData > >" id="B82A1D11-3F86-4F07-B380-B61BA2DAF3A9" /> -->
+  <class name="DataVector<TrackerRawDataCollection< FaserSCT1_RawData > >" id="F884804E-E87B-42BE-9DD0-1571A1508F25" />
+
+
+</lcgdict>
+

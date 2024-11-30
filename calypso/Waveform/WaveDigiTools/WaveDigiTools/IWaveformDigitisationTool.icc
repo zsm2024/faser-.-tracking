@@ -1,0 +1,18 @@
+#include "Identifier/Identifier.h"
+#include "Identifier/ExpandedIdentifier.h"
+
+template <class ID> 
+std::map<Identifier, std::vector<uint16_t>>  IWaveformDigitisationTool::create_waveform_map(const ID* idHelper) const {
+
+  std::map<Identifier, std::vector<uint16_t>> waveforms;
+
+  for (auto itr = idHelper->pmt_begin(); itr != idHelper->pmt_end(); ++itr) {
+    const ExpandedIdentifier& extId = *itr;
+    Identifier id = idHelper->pmt_id(extId);
+    waveforms[id] = std::vector<uint16_t>();
+    waveforms[id].reserve(digitizer_samples());
+  }
+
+  return waveforms;
+}
+

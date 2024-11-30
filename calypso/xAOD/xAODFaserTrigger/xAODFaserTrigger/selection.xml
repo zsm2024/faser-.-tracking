@@ -1,0 +1,13 @@
+<!-- Copyright (C) 2020 CERN for the benefit of the FASER collaboration -->
+<!-- Missing id values here, need to figure out where these come from... -->
+<lcgdict>
+
+  <class name="xAOD::FaserTriggerData_v1" 
+	 id="965196C8-AC56-421C-9AC7-D7DB62E2AFFC"/>
+  <typedef name="xAOD::FaserTriggerData" />
+
+  <class name="xAOD::FaserTriggerDataAux_v1" 
+	 id="5F26C42B-3BF1-44CA-A127-172ED5797936"/>
+  <typedef name="xAOD::FaserTriggerDataAux" />
+
+</lcgdict>

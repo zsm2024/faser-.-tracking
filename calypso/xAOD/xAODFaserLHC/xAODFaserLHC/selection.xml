@@ -1,0 +1,13 @@
+<!-- Copyright (C) 2020 CERN for the benefit of the FASER collaboration -->
+<!-- Missing id values here, need to figure out where these come from... -->
+<lcgdict>
+
+  <class name="xAOD::FaserLHCData_v1" 
+	 id="6c373036-fad1-476c-9a8b-15591faccf00"/>
+  <typedef name="xAOD::FaserLHCData" />
+
+  <class name="xAOD::FaserLHCDataAux_v1" 
+	 id="484ef174-8efb-426a-888c-827f72ed972a"/>
+  <typedef name="xAOD::FaserLHCDataAux" />
+
+</lcgdict>

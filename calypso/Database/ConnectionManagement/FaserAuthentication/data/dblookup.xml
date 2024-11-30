@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<servicelist>
+
+<logicalservice name="FASERDD">
+ <service name="sqlite_file:data/geomDB/geomDB_sqlite" accessMode="read" />
+ <service name="sqlite_file:///cvmfs/faser.cern.ch/repo/sw/database/DBRelease/current/geomDB/geomDB_sqlite" accessMode="read" />
+</logicalservice>
+
+<logicalservice name="COOLOFL_SCT">
+ <service name="sqlite_file:data/sqlite200/ALLP200.db" accessMode="read" />
+ <service name="sqlite_file:///cvmfs/faser.cern.ch/repo/sw/database/DBRelease/current/sqlite200/ALLP200.db" accessMode="read" />
+</logicalservice>
+
+<logicalservice name="COOLOFL_DCS">
+ <service name="sqlite_file:data/sqlite200/ALLP200.db" accessMode="read" />
+ <service name="sqlite_file:///cvmfs/faser.cern.ch/repo/sw/database/DBRelease/current/sqlite200/ALLP200.db" accessMode="read" />
+</logicalservice>
+
+<logicalservice name="COOLOFL_GLOBAL">
+ <service name="sqlite_file:data/sqlite200/ALLP200.db" accessMode="read" />
+ <service name="sqlite_file:///cvmfs/faser.cern.ch/repo/sw/database/DBRelease/current/sqlite200/ALLP200.db" accessMode="read" />
+</logicalservice>
+
+ <logicalservice name="COOLOFL_TDAQ">
+  <service name="sqlite_file:data/sqlite200/CABP200.db" accessMode="read" />
+  <service name="sqlite_file:///cvmfs/faser.cern.ch/repo/sw/database/DBRelease/current/sqlite200/CABP200.db" accessMode="read" />
+ </logicalservice>
+
+ <logicalservice name="COOLOFL_DIGITIZER">
+  <service name="sqlite_file:data/sqlite200/ALLP200.db" accessMode="read" />
+  <service name="sqlite_file:///cvmfs/faser.cern.ch/repo/sw/database/DBRelease/current/sqlite200/ALLP200.db" accessMode="read" />
+ </logicalservice>
+
+ <logicalservice name="COOLOFL_INDET">
+  <service name="sqlite_file:data/sqlite200/ALLP200.db" accessMode="read" />
+  <service name="sqlite_file:///cvmfs/faser.cern.ch/repo/sw/database/DBRelease/current/sqlite200/ALLP200.db" accessMode="read" />
+ </logicalservice>
+
+<logicalservice name="COOLOFL_TRIGGER">
+  <service name="sqlite_file:data/sqlite200/ALLP200.db" accessMode="read" />
+  <service name="sqlite_file:///cvmfs/faser.cern.ch/repo/sw/database/DBRelease/current/sqlite200/ALLP200.db" accessMode="read" />   
+</logicalservice>
+
+<logicalservice name="COOLOFL_LHC">
+ <service name="sqlite_file:data/sqlite200/ALLP200.db" accessMode="read" />
+  <service name="sqlite_file:///cvmfs/faser.cern.ch/repo/sw/database/DBRelease/current/sqlite200/ALLP200.db" accessMode="read" />   
+</logicalservice>
+
+</servicelist>

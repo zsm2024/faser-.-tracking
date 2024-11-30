@@ -1,0 +1,5 @@
+<lcgdict>
+  <class name="AtlasHitsVector<FaserSiHit>" />
+  <class name="std::vector<FaserSiHit>" />
+  <class name="FaserSiHit" />
+</lcgdict>

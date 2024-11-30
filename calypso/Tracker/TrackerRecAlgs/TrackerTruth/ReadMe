@@ -1,0 +1,6 @@
+This package can be used to write out the truth information of particles and hits from MC generated events.
+For particles the run number, event number, pdg code, vertex and momentum is written out and for hits the
+run number, event number, station, plane, module, row, sensor, local position, global position and pdg code of the
+corresponding particle is written out.
+
+To write out truth information generate MC data using the G4FaserAlgConfig_Test.py and run TrackerTruthDbg.py

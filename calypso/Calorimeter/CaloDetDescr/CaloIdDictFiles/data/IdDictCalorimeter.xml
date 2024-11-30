@@ -1,0 +1,26 @@
+<IdDictionary name="Calorimeter">
+
+  <field name="part" >
+    <label name="Ecal" value="1" />
+  </field>
+
+  <field name="row">
+    <label name="Bottom"       value="0" /> 
+    <label name="Top"          value="1" />
+  </field>
+
+  <field name="module">
+  <!-- facing downstream (hence "starboard" and "port")
+       x must increase right to left for a right-handed
+       coordinate system -->
+    <label name="Starboard"   value="0" />
+    <label name="Port"        value="1" />
+  </field>
+
+  <region>
+    <range field="part"       value="Ecal" />
+    <range field="row"        values="Bottom Top" wraparound="FALSE" />
+    <range field="module"     values="Starboard Port" wraparound="FALSE" />
+    <range field="pmt"        minvalue="0" maxvalue="1" />
+  </region>
+</IdDictionary>

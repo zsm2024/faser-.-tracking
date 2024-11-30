@@ -1,0 +1,14 @@
+{
+"name" : "ALPPhotontGrid13p6_65mm",
+"model" : "ALP-photon",
+"pid1" : 22,
+"pid2" : 22,
+"nevents" : 50000,
+"nrun" : 110100,
+"samples" : {
+	"7e-05" : [0.06],
+	"1.5e-04" : [0.06],
+	"3e-04" : [0.06]
+   }
+}
+

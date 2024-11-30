@@ -1,0 +1,14 @@
+{
+    "file_length": 1000,
+    "mass": 105.66,
+    "maxE": 300.0,
+    "minE": 300.0,
+    "pid": [211, -211],
+    "radius": -25.0,
+    "angle": 0.0006,
+    "run": 121105,
+    "sampler": "const",
+    "segment": 0,
+    "short": "MDC_PG_pion_fasernu_300GeV",
+    "zpos": -3990.0
+}

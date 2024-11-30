@@ -1,0 +1,13 @@
+{
+    "file_length": 2000,
+    "mass": 105.66,
+    "maxE": 100.0,
+    "minE": 100.0,
+    "pid": [-13, 13],
+    "radius": -100.0,
+    "run": 101303,
+    "sampler": "const",
+    "segment": 0,
+    "short": "MDC_PG_muon_100GeV",
+    "zpos": -1000.0
+}

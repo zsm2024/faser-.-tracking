@@ -1,0 +1,50 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+///////////////////////////////////////////////////////////////////
+// TrackerClusterContainer.icc
+//   Implementation file for class TrackerClusterContainer
+///////////////////////////////////////////////////////////////////
+
+
+template< class CollectionT>
+// Constructor with parameters:
+TrackerClusterContainer< CollectionT>::TrackerClusterContainer(unsigned int max) :
+	IdentifiableContainer<CollectionT>(max)
+{
+}
+
+template< class CollectionT>
+// Constructor with parameters:
+TrackerClusterContainer< CollectionT>::TrackerClusterContainer() :
+	IdentifiableContainer<CollectionT>(0)
+{
+}
+
+template< class CollectionT>
+// Constructor with parameters:
+TrackerClusterContainer< CollectionT>::TrackerClusterContainer(EventContainers::IdentifiableCache<CollectionT>* cache) :
+	IdentifiableContainer<CollectionT>(cache)
+{
+}
+
+
+template< class CollectionT>
+// Destructor:
+TrackerClusterContainer< CollectionT>::~TrackerClusterContainer()
+{
+}
+
+template< class CollectionT>
+const CLID& TrackerClusterContainer< CollectionT>::classID() 
+{
+	return ClassID_traits< TrackerClusterContainer <CollectionT> > ::ID();
+}
+
+template< class CollectionT>
+const CLID& TrackerClusterContainer< CollectionT>::clID() const
+{
+	return classID();
+}
+

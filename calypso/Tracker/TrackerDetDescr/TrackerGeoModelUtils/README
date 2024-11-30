@@ -1,0 +1,9 @@
+This package held code common to PixelGeoModel, SCT_GeoModel, TRT_GeoModel
+and InDetServMatGeoModel
+
+Package:      offline/Tracker/TrackerDetDescr/TrackerGeoModelUtils 
+
+Original author:  Grant Gorfine <Grant.Gorfine@cern.ch>
+
+
+

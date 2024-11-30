@@ -1,0 +1,9 @@
+<lcgdict>
+
+    <!-- CaloHits -->
+    <class name="CaloHit_p1" />
+    <class name="std::vector<CaloHit_p1>" />
+    <class name="CaloHitCollection_p1" id="134E8045-AB99-43EF-9AD1-324C48830B64" />     
+    <class name="CaloHitCollection_p1a" id="02C108EE-0AD9-4444-83BD-D5273FCDEF6F" />     
+
+</lcgdict>

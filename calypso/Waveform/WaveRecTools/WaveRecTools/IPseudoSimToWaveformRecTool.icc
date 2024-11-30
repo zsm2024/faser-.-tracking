@@ -1,0 +1,13 @@
+template<class CONT>
+StatusCode IPseudoSimToWaveformRecTool::reconstruct(const CONT* hitCollection,
+						    xAOD::WaveformHitContainer* container) const {
+
+  std::map<Identifier, float> idSums;
+
+  // Sum hits in each "channel" 
+  for (const auto& hit : *hitCollection) {
+    idSums[hit.getIdentifier()] += hit.energyLoss();   
+  }
+
+  return make_hits(idSums, container);	
+}

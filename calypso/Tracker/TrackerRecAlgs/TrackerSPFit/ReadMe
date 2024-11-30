@@ -1,0 +1,6 @@
+TrackerSPFit:
+	Use the FaserSCT_SpacePoint to get the residuals for alignment
+
+For each station, select the spacepoint triplets first, then perform a 3D line fit and require the chi2 less than 10.
+Take the difference between the expected position and measured position as the residuals.
+In the tree names "spfit", the branch "sp_x_residual" and "sp_y_residual" are the residuals in x and y for each spacepoint, and "sp_station", "sp_layer" and "sp_module" are the stations (1-3), layer (0-2) and module (0-8) ID for.

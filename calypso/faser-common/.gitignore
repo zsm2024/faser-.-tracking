@@ -1,0 +1,8 @@
+build
+*/*.swp
+*/**/*.swp
+.vscode
+*.code-workspace
+__pycache__
+*~
+logTest*

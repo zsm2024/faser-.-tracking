@@ -1,0 +1,33 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+namespace CaloDD {
+
+
+inline int CaloNumerology::numRows() const
+{
+  return m_rowIds.size();
+}
+
+inline int CaloNumerology::numModulesPerRow() const
+{
+  return m_numModulesPerRow;
+}
+
+inline int CaloNumerology::numPmtsPerModule() const
+{
+  return m_numPmtsPerModule;
+}
+
+inline bool CaloNumerology::useRow(int row) const
+{
+  return (m_rowIds.count(row) > 0);
+}
+
+inline const std::set<int>& CaloNumerology::rowIds() const
+{
+  return m_rowIds;
+}
+
+} // End namespace

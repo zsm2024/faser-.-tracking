@@ -1,0 +1,14 @@
+{
+    "file_length": 5000,
+    "mass": 105.66,
+    "maxE": 300.0,
+    "minE": 300.0,
+    "pid": [-13, 13],
+    "radius": -25.0,
+    "angle": 0.0006,
+    "run": 101311,
+    "sampler": "const",
+    "segment": 0,
+    "short": "MDC_PG_muon_fasernu_300GeV",
+    "zpos": -3990.0
+}

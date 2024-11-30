@@ -1,0 +1,10 @@
+<lcgdict>
+ <!--<class name="TrackerSimDataCollection" id="5A50C32E-C036-4A49-AE97-716D53210BE1" /> -->
+ <class name="TrackerSimDataCollection" id="DF5775E8-8C33-4B82-8322-58B7671BF678" />
+     <class name="TrackerSimData" />
+     <!-- Duplicated by ATLAS version (InDetSimData) -->
+     <!-- <class pattern="*pair*<HepMcParticleLink*float>" /> 
+     <class name="std::vector<std::pair< HepMcParticleLink , float> >" /> -->
+     <class name="std::map<Identifier,TrackerSimData>" />
+</lcgdict>
+ 

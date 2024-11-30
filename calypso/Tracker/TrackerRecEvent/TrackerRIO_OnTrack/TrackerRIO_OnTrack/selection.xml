@@ -1,0 +1,10 @@
+<lcgdict>
+   <class name="Tracker::SiClusterOnTrack" >
+    <field name="m_globalPosition" transient="true" />
+  </class>
+  <class name="Tracker::FaserSCT_ClusterOnTrack" >
+    <field name="m_detEl" transient="true" />
+    <field name="m_rio" transient="true" />
+  </class>    
+  <class name="TrackerDD::SiDetectorElement" />
+ </lcgdict>

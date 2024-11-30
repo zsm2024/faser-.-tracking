@@ -1,0 +1,105 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+namespace TrackerDD {
+
+inline int SiNumerology::numBarrels() const
+{
+  return m_barrelIds.size();
+}
+
+inline int SiNumerology::numStations() const
+{
+  return m_barrelIds.size();
+}
+
+inline int SiNumerology::barrelId(int index) const
+{
+  return m_barrelIds[index];
+}
+
+inline int SiNumerology::stationId(int index) const
+{
+  return m_barrelIds[index];
+}
+
+inline int SiNumerology::numLayers() const
+{
+  return m_numLayers;
+}
+
+inline int SiNumerology::numPhiModulesForLayer(int layer) const
+{
+  return m_phiModulesForLayer[layer];
+}
+
+inline int SiNumerology::numPhiModulesForLayer() const
+{
+  return m_maxNumBarrelPhiModules;
+}
+
+inline int SiNumerology::numEtaModulesForLayer(int layer) const
+{
+  return m_etaModulesForLayer[layer];
+}
+
+inline int SiNumerology::numEtaModulesForLayer() const
+{
+  return m_maxNumBarrelEta;
+}
+
+inline int SiNumerology::beginEtaModuleForLayer(int layer) const
+{
+  // Assume symmetric about zero.
+  return -m_etaModulesForLayer[layer]/2;
+}
+
+inline int SiNumerology::beginEtaModuleForLayer() const
+{
+  return -m_maxNumBarrelEta/2;
+}
+// these are both 1 past the end, like an iterator ::end()
+inline int SiNumerology::endEtaModuleForLayer(int layer) const
+{
+  // Assume symmetric about zero.
+  return m_etaModulesForLayer[layer]/2+1;
+}
+
+inline int SiNumerology::endEtaModuleForLayer() const
+{
+  return m_maxNumBarrelEta/2 + 1;
+}
+  
+inline bool SiNumerology::skipEtaZeroForLayer(int layer) const
+{
+  // If even then no module at eta = 0.
+  return !(m_etaModulesForLayer[layer]%2);
+}
+
+inline bool SiNumerology::skipEtaZeroForLayer() const
+{
+  return !(m_maxNumBarrelEta%2);
+}
+
+inline int SiNumerology::maxNumBarrelEta() const
+{
+  return m_maxNumBarrelEta;
+}
+
+inline int SiNumerology::maxNumStrips() const 
+{
+  return m_maxPhiCells; 
+}
+
+inline int SiNumerology::maxNumPhiCells() const
+{
+  return m_maxPhiCells;
+}
+
+inline bool SiNumerology::useLayer(int layer) const
+{
+  return (m_phiModulesForLayer[layer] != 0);
+}
+
+} // End namespace

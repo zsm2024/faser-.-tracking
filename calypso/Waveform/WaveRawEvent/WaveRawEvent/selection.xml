@@ -1,0 +1,7 @@
+<lcgdict>
+  <class name="RawWaveformContainer" id="f40fd51f-b70e-4cc8-971d-b6ab5c751a86" />
+  <class name="DataVector<RawWaveform>" id="e4b393bd-e9b8-458a-8691-b0ebbfd6999c" />
+  <class name="std::vector<RawWaveform*>" />
+  <class name="std::vector<const RawWaveform*>" />
+  <class name="RawWaveform" />
+</lcgdict>

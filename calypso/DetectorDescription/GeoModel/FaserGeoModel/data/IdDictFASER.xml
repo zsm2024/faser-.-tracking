@@ -1,0 +1,31 @@
+<IdDictionary name="FASER">
+
+  <field name="subdet">
+    <label name="Neutrino"        value="1"  />
+    <label name="Scintillator"    value="2"  />
+    <label name="Tracker"         value="3"  />
+    <label name="Calorimeter"     value="4"  />
+ </field>
+
+  <region>
+    <range field="subdet" value="Neutrino" />
+    <dictionary name="Neutrino" />
+  </region>
+
+  <region>
+    <range field="subdet" value="Scintillator" />
+    <dictionary name="Scintillator" />
+  </region>
+
+  <region>
+    <range field="subdet" value="Tracker" />
+    <dictionary name="Tracker" />
+  </region>
+
+  <region>
+    <range field ="subdet" value="Calorimeter" />
+    <dictionary name="Calorimeter" />
+  </region>
+  
+</IdDictionary>
+

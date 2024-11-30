@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xsi:noNamespaceSchemaLocation="schema/gdml.xsd">
+    <define>
+        <position name="RampinWorldpos" unit="mm" x="576.9" y="-177.6" z="-598.8"/>
+        <rotation name="RampinWorldrot" unit="deg" z="0" y="-9.50625" x="0.711918"/>
+        <position name="Subpos" unit="mm" x="-668.4" y="245.1" z="498.3" />
+        <rotation name="Subrot" unit="deg" x="90.7119" y="-9.50625" z="0" />
+        <constant name="WorldSize" value="20000"/>
+        <constant name="RampWidth" value="7000"/>
+        <constant name="RampLengthZ" value="8422"/>
+        <constant name="RampMinThickness" value="2000"/>
+        <constant name="RampSlope" value="0.08533"/>
+        <constant name="WallThickness" value="5000" />
+    </define>
+    <materials>
+        <isotope N="1.400000000000000e+01" Z="7.000000000000000e+00" name="N140x8e46440">
+            <atom unit="g/mole" value="1.400310000000000e+01"/>
+        </isotope>
+        <isotope N="1.500000000000000e+01" Z="7.000000000000000e+00" name="N150x8e48da0">
+            <atom unit="g/mole" value="1.500010000000000e+01"/>
+        </isotope>
+        <element name="N0x8e48c30">
+            <fraction n="9.963200000000001e-01" ref="N140x8e46440"/>
+            <fraction n="3.680000000000000e-03" ref="N150x8e48da0"/>
+        </element>
+        <isotope N="1.600000000000000e+01" Z="8.000000000000000e+00" name="O160x1167b880">
+            <atom unit="g/mole" value="1.599490000000000e+01"/>
+        </isotope>
+        <isotope N="1.700000000000000e+01" Z="8.000000000000000e+00" name="O170x1167b7d0">
+            <atom unit="g/mole" value="1.699909999999999e+01"/>
+        </isotope>
+        <isotope N="1.800000000000000e+01" Z="8.000000000000000e+00" name="O180xfb79770">
+            <atom unit="g/mole" value="1.799920000000000e+01"/>
+        </isotope>
+        <element name="O0x1167b4f0">
+            <fraction n="9.975700000000000e-01" ref="O160x1167b880"/>
+            <fraction n="3.800000000000000e-04" ref="O170x1167b7d0"/>
+            <fraction n="2.050000000000000e-03" ref="O180xfb79770"/>
+        </element>
+        <isotope N="2.800000000000000e+01" Z="1.400000000000000e+01" name="Si280x8146230">
+            <atom unit="g/mole" value="2.797690000000000e+01"/>
+        </isotope>
+        <isotope N="2.900000000000000e+01" Z="1.400000000000000e+01" name="Si290x8146280">
+            <atom unit="g/mole" value="2.897650000000000e+01"/>
+        </isotope>
+        <isotope N="3.000000000000000e+01" Z="1.400000000000000e+01" name="Si300x8146e50">
+            <atom unit="g/mole" value="2.997380000000000e+01"/>
+        </isotope>
+        <element name="Si0x8147580">
+            <fraction n="9.222960777039223e-01" ref="Si280x8146230"/>
+            <fraction n="4.683195316804684e-02" ref="Si290x8146280"/>
+            <fraction n="3.087196912803088e-02" ref="Si300x8146e50"/>
+        </element>
+        <isotope N="4.000000000000000e+01" Z="2.000000000000000e+01" name="Ca400xee155f0">
+            <atom unit="g/mole" value="3.996260000000000e+01"/>
+        </isotope>
+        <isotope N="4.200000000000000e+01" Z="2.000000000000000e+01" name="Ca420xee15640">
+            <atom unit="g/mole" value="4.195860000000000e+01"/>
+        </isotope>
+        <isotope N="4.300000000000000e+01" Z="2.000000000000000e+01" name="Ca430xee15690">
+            <atom unit="g/mole" value="4.295880000000000e+01"/>
+        </isotope>
+        <isotope N="4.400000000000000e+01" Z="2.000000000000000e+01" name="Ca440xee156e0">
+            <atom unit="g/mole" value="4.395550000000001e+01"/>
+        </isotope>
+        <isotope N="4.600000000000000e+01" Z="2.000000000000000e+01" name="Ca460xee15730">
+            <atom unit="g/mole" value="4.595370000000000e+01"/>
+        </isotope>
+        <isotope N="4.800000000000000e+01" Z="2.000000000000000e+01" name="Ca480xee15780">
+            <atom unit="g/mole" value="4.795250000000000e+01"/>
+        </isotope>
+        <element name="Ca0xee154a0">
+            <fraction n="9.694100000000000e-01" ref="Ca400xee155f0"/>
+            <fraction n="6.470000000000000e-03" ref="Ca420xee15640"/>
+            <fraction n="1.350000000000000e-03" ref="Ca430xee15690"/>
+            <fraction n="2.086000000000000e-02" ref="Ca440xee156e0"/>
+            <fraction n="4.000000000000000e-05" ref="Ca460xee15730"/>
+            <fraction n="1.870000000000000e-03" ref="Ca480xee15780"/>
+        </element>
+        <isotope N="2.300000000000000e+01" Z="1.100000000000000e+01" name="Na230x9095660">
+            <atom unit="g/mole" value="2.298980000000000e+01"/>
+        </isotope>
+        <element name="Na0x90954f0">
+            <fraction n="1.000000000000000e+00" ref="Na230x9095660"/>
+        </element>
+        <isotope N="5.400000000000000e+01" Z="2.600000000000000e+01" name="Fe540x11685b60">
+            <atom unit="g/mole" value="5.393959999999999e+01"/>
+        </isotope>
+        <isotope N="5.600000000000000e+01" Z="2.600000000000000e+01" name="Fe560x11685bb0">
+            <atom unit="g/mole" value="5.593490000000000e+01"/>
+        </isotope>
+        <isotope N="5.700000000000000e+01" Z="2.600000000000000e+01" name="Fe570x11685c00">
+            <atom unit="g/mole" value="5.693540000000000e+01"/>
+        </isotope>
+        <isotope N="5.800000000000000e+01" Z="2.600000000000000e+01" name="Fe580x11685c50">
+            <atom unit="g/mole" value="5.793330000000000e+01"/>
+        </isotope>
+        <element name="Fe0x116859d0">
+            <fraction n="5.845000000000000e-02" ref="Fe540x11685b60"/>
+            <fraction n="9.175400000000000e-01" ref="Fe560x11685bb0"/>
+            <fraction n="2.119000000000000e-02" ref="Fe570x11685c00"/>
+            <fraction n="2.820000000000000e-03" ref="Fe580x11685c50"/>
+        </element>
+        <isotope N="2.700000000000000e+01" Z="1.300000000000000e+01" name="Al270x116850d0">
+            <atom unit="g/mole" value="2.698150000000000e+01"/>
+        </isotope>
+        <element name="Al0x11684f90">
+            <fraction n="1.000000000000000e+00" ref="Al270x116850d0"/>
+        </element>
+        <isotope N="1.200000000000000e+01" Z="6.000000000000000e+00" name="C120x8147220">
+          <atom unit="g/mole" value="1.200000000000000e+01"/>
+        </isotope>
+        <isotope N="1.300000000000000e+01" Z="6.000000000000000e+00" name="C130x8147270">
+          <atom unit="g/mole" value="1.300340000000000e+01"/>
+        </isotope>
+        <element name="C0x81470c0">
+        <fraction n="9.893000000000001e-01" ref="C120x8147220"/>
+        <fraction n="1.070000000000000e-02" ref="C130x8147270"/>
+        </element>
+        <isotope N="3.900000000000000e+01" Z="1.900000000000000e+01" name="K390x89fe1c0">
+            <atom unit="g/mole" value="3.896370000000000e+01"/>
+        </isotope>
+        <isotope N="4.000000000000000e+01" Z="1.900000000000000e+01" name="K400x89fe210">
+            <atom unit="g/mole" value="3.996400000000000e+01"/>
+        </isotope>
+        <isotope N="4.100000000000000e+01" Z="1.900000000000000e+01" name="K410x89fe260">
+            <atom unit="g/mole" value="4.096180000000000e+01"/>
+        </isotope>
+        <element name="K0x89fe020">
+            <fraction n="9.325810000000000e-01" ref="K390x89fe1c0"/>
+            <fraction n="1.170000000000000e-04" ref="K400x89fe210"/>
+            <fraction n="6.730200000000000e-02" ref="K410x89fe260"/>
+        </element>
+        <isotope N="1.000000000000000e+00" Z="1.000000000000000e+00" name="H10x8e31ab0">
+            <atom unit="g/mole" value="1.007825030813723e+00"/>
+        </isotope>
+        <isotope N="2.000000000000000e+00" Z="1.000000000000000e+00" name="H20x8e31b00">
+            <atom unit="g/mole" value="2.014101999666174e+00"/>
+        </isotope>
+        <element name="H0x8e31950">
+            <fraction n="9.998850000000000e-01" ref="H10x8e31ab0"/>
+            <fraction n="1.150000000000000e-04" ref="H20x8e31b00"/>
+        </element>
+        <isotope N="36" Z="18" name="Ar36Faser">
+            <atom unit="g/mole" value="35.967545105"/>
+        </isotope>
+        <isotope N="38" Z="18" name="Ar38Faser">
+            <atom unit="g/mole" value="37.96273210"/>
+        </isotope>
+        <isotope N="40" Z="18" name="Ar40Faser">
+            <atom unit="g/mole" value="39.9623831238"/>
+        </isotope>
+        <element name="ArgonFaser">
+            <fraction n="0.996035" ref="Ar40Faser"/>
+            <fraction n="0.000629" ref="Ar38Faser"/>
+            <fraction n="0.003336" ref="Ar36Faser"/>
+        </element>
+        <!--
+        <material name="Concrete" state="solid">
+            <MEE unit="eV" value="1.271741855079048e+02"/>
+            <D unit="g/cm3" value="2.499998684602534e+00"/>
+            <fraction n="5.306122448979591e-01" ref="O0x1167b4f0"/>
+            <fraction n="3.316326530612245e-01" ref="Si0x8147580"/>
+            <fraction n="6.122448979591836e-02" ref="Ca0xee154a0"/>
+            <fraction n="1.530612244897959e-02" ref="Na0x90954f0"/>
+            <fraction n="2.040816326530612e-02" ref="Fe0x116859d0"/>
+            <fraction n="4.081632653061224e-02" ref="Al0x11684f90"/>
+        </material>
+        -->
+        <!-- Concrete and Air composition taken from ATLAS; elements/isotopes taken from LHCb -->
+        <material name="Concrete" state="solid">
+            <MEE unit="eV" value="1.271741855079048e+02"/>
+            <D unit="g/cm3" value="2.4e+00"/>
+            <fraction n="0.5" ref="O0x1167b4f0"/>
+            <fraction n="0.2" ref="Si0x8147580"/>
+            <fraction n="0.2" ref="Ca0xee154a0"/>
+            <fraction n="0.01" ref="Na0x90954f0"/>
+            <fraction n="0.014" ref="Fe0x116859d0"/>
+            <fraction n="0.03" ref="Al0x11684f90"/>
+            <fraction n="0.03" ref="C0x81470c0"/>
+            <fraction n="0.01" ref="K0x89fe020"/>
+            <fraction n="0.006" ref="H0x8e31950"/>
+        </material>
+        <material name="Air" state="gas">
+            <T unit="K" value="2.930000000000000e+02"/>
+            <MEE unit="eV" value="8.570323231865051e+01"/>
+            <D unit="g/cm3" value="1.214e-03"/>
+            <fraction n="0.7494" ref="N0x8e48c30"/>
+            <fraction n="0.2369" ref="O0x1167b4f0"/>
+            <fraction n="0.0129" ref="ArgonFaser"/>
+            <fraction n="0.0008" ref="H0x8e31950"/>
+        </material>
+    </materials>
+    <solids>
+        <arb8 name="ramp" lunit="mm"
+                          v1x="-RampWidth/2" v1y="-RampMinThickness" v2x="RampWidth/2" v2y="-RampMinThickness" v3x="RampWidth/2" v3y="RampSlope*RampLengthZ" v4x="-RampWidth/2" v4y="RampSlope*RampLengthZ" 
+                          v5x="-RampWidth/2" v5y="-RampMinThickness" v6x="RampWidth/2" v6y="-RampMinThickness" v7x="RampWidth/2" v7y="0" v8x="-RampWidth/2" v8y="0"
+                          dz="RampLengthZ/2" />
+        <box name="world" lunit="mm" x="WorldSize" y="WorldSize" z="WorldSize" />
+        <box name="faserWall"  lunit="mm" x="RampWidth" y="(RampSlope*RampLengthZ+RampMinThickness)" z="WallThickness" />
+        <xtru name="trenchOutline" lunit="mm">        
+            <twoDimVertex x="-249.75647241976003" y="-3162.7618497323056"/>
+            <twoDimVertex x="436.065806982358" y="-3162.7608114181166"/>
+            <twoDimVertex x="750.3626731862572" y="-1286.045959074479"/>
+            <twoDimVertex x="750.4059394616982" y="-604.5461685406792"/>
+            <twoDimVertex x="750.6632036024528" y="3447.692178833775"/>
+            <twoDimVertex x="598.5775838786217" y="3447.7018373451183"/>
+            <twoDimVertex x="-251.25127807309354" y="3447.755796000657"/>
+            <twoDimVertex x="-624.2972688145043" y="1219.150232226327"/>
+            <twoDimVertex x="-659.4916199548085" y="1008.9993568866641"/>
+            <twoDimVertex x="-659.5757293651513" y="-315.8326195671569"/>
+            <twoDimVertex x="-659.6885336897632" y="-2092.6465942800164"/>
+            <twoDimVertex x="-249.68853582392614" y="-2092.672626612777"/>
+            <section zOrder="0" zPosition="-375.0" xOffset="0" yOffset="0" scalingFactor="1" />
+            <section zOrder="1" zPosition="375.0" xOffset="0" yOffset="0" scalingFactor="1" />
+        </xtru>
+        <union name="rampAndWall">
+            <first ref="ramp"/>
+            <second ref="faserWall"/>
+            <position name="WallShift" unit="mm" y="-RampMinThickness+(RampSlope*RampLengthZ+RampMinThickness)/2" z="-(RampLengthZ+WallThickness)/2"/>
+        </union>
+        <subtraction name="faserTrench">
+            <first ref="ramp"/>
+            <firstpositionref ref="RampinWorldpos"/>
+            <firstrotationref ref="RampinWorldrot"/>
+            <second ref="trenchOutline"/>
+            <!--
+            <rotationref ref="Subrot"/>
+            <positionref ref="Subpos"/>
+            -->
+            <rotation name="Xrotation" unit="deg" x="90"/>
+            <position name="Yshift" unit="mm" y="75"/>
+        </subtraction>
+        <subtraction name="faserTrenchAndWall">
+            <first ref="rampAndWall"/>
+            <firstpositionref ref="RampinWorldpos"/>
+            <firstrotationref ref="RampinWorldrot"/>
+            <second ref="trenchOutline"/>
+            <!--
+            <rotationref ref="Subrot"/>
+            <positionref ref="Subpos"/>
+            -->
+            <rotation name="Xrotation" unit="deg" x="90"/>
+            <position name="Yshift" unit="mm" y="75"/>
+        </subtraction>
+    </solids>
+    <structure>
+        <volume name="Trench">
+            <solidref ref="faserTrench"/>
+            <materialref ref="Concrete"/>
+        </volume>
+        <volume name="TrenchAndWall">
+            <solidref ref="faserTrenchAndWall"/>
+            <materialref ref="Concrete"/>
+        </volume>
+        <volume name="World" >
+            <materialref ref="Air" />
+            <solidref ref="world" />
+            <physvol>
+<!--                <volumeref ref="Trench" /> -->
+                <volumeref ref="TrenchAndWall" />
+                <!--
+                <rotationref ref="RampinWorldrot"/>
+                <positionref ref="RampinWorldpos"/>
+                -->
+            </physvol>
+        </volume>
+    </structure>
+    <setup name="Default" version="1.0" >
+        <world ref="World" />
+    </setup>
+</gdml>

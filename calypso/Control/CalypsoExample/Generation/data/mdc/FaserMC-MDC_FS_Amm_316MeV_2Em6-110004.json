@@ -1,0 +1,14 @@
+{
+    "run": 110004,
+    "segment": 0,
+    "file_length": 1000,
+    "model": "DarkPhoton",
+    "model_path": "/eos/experiment/faser/gen/ForeseeMDC/DarkPhoton/npy/events_14TeV_m0.3162GeV_c2e-06to_13_-13.npy",
+    "short": "MDC_FS_Amm_316MeV_2Em6",
+    "tag": null,
+    "pid": [
+        -13,
+        13
+    ],
+    "mass": 316.2
+}

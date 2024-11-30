@@ -1,0 +1,48 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+#include "NeutrinoSimEvent/NeutrinoHit.h"
+#include "NeutrinoReadoutGeometry/NeutrinoDetectorElement.h"
+#include "NeutrinoReadoutGeometry/EmulsionDetectorManager.h"
+#include "StoreGate/StoreGateSvc.h"
+#include "NeutrinoIdentifier/EmulsionID.h"
+#include "GeoPrimitives/CLHEPtoEigenConverter.h"
+
+inline void GeoNeutrinoHit::init() {
+
+  ServiceHandle<StoreGateSvc> detStore ("DetectorStore", "GeoNeutrinoHit");
+  if (detStore.retrieve().isSuccess()) {
+    if(detStore->retrieve(s_emulsion,"Emulsion").isFailure())
+      s_emulsion = 0;
+    if(detStore->retrieve(s_nID,"EmulsionID").isFailure())
+      s_nID = 0;
+  }
+}
+
+inline GeoNeutrinoHit::GeoNeutrinoHit (const NeutrinoHit & h) {
+  m_hit = &h;
+  if (!s_emulsion) init();
+}
+
+inline HepGeom::Point3D<double> GeoNeutrinoHit::getGlobalPosition() const {
+
+  Identifier id;
+  const NeutrinoDD::NeutrinoDetectorElement *geoelement=NULL;
+  id = s_nID->film_id(m_hit->getModule(), m_hit->getBase(), m_hit->getFilm());
+  geoelement = s_emulsion->getDetectorElement(id);      
+  
+  if (geoelement) {
+
+    const HepGeom::Point3D<double> globalStartPos = Amg::EigenTransformToCLHEP(geoelement->transformHit()) * HepGeom::Point3D<double>(m_hit->localStartPosition());
+    const HepGeom::Point3D<double> globalEndPos   = Amg::EigenTransformToCLHEP(geoelement->transformHit()) * HepGeom::Point3D<double>(m_hit->localEndPosition());
+    
+    double x=(globalStartPos.x() + globalEndPos.x())/2;
+    double y=(globalStartPos.y() + globalEndPos.y())/2;
+    double z=(globalStartPos.z() + globalEndPos.z())/2;
+
+    return HepGeom::Point3D<double>(x,y,z);
+  }
+
+  return HepGeom::Point3D<double>(0.0,0.0,0.0);
+}

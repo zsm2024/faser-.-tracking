@@ -1,0 +1,14 @@
+{
+    "file_length": 5000,
+    "mass": 105.66,
+    "maxE": 5000.0,
+    "minE": 10.0,
+    "pid": [-13, 13],
+    "radius": -2.5,
+    "angle": 0.0006,
+    "run": 101306,
+    "sampler": "log",
+    "segment": 0,
+    "short": "MDC_PG_muon_fasernu_logE",
+    "zpos": -3990.0
+}

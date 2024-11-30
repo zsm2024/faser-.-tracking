@@ -1,0 +1,8 @@
+<lcgdict>
+
+    <!-- ScintHits -->
+    <class name="ScintHit_p1" />
+    <class name="std::vector<ScintHit_p1>" />
+    <class name="ScintHitCollection_p1" id="B2573A16-4B46-4E1E-98E3-F93421680779" />     
+    <class name="ScintHitCollection_p1a" id="0DFC461F-9FF5-4447-B4F0-7CC7157191D1" />     
+</lcgdict>

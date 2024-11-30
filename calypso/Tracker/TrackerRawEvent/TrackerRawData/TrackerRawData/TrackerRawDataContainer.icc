@@ -1,0 +1,35 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+///////////////////////////////////////////////////////////////////
+// TrackerRawDataContainer.icc
+//   Implementation file for class TrackerRawDataContainer
+///////////////////////////////////////////////////////////////////
+// (c) ATLAS Detector software
+///////////////////////////////////////////////////////////////////
+// Version 1.0 13/08/2002 Veronique Boisvert
+///////////////////////////////////////////////////////////////////
+
+//#include "TrackerRawData/TrackerRawDataContainer.h"
+
+template< class CollectionT>
+// Constructor with parameters:
+TrackerRawDataContainer< CollectionT>::TrackerRawDataContainer(unsigned int max) :
+  IdentifiableContainer<CollectionT>(max)
+{
+}
+
+template< class CollectionT>
+TrackerRawDataContainer< CollectionT>::TrackerRawDataContainer(EventContainers::IdentifiableCache<CollectionT> *cache) :
+  IdentifiableContainer<CollectionT>(cache)
+{
+}
+
+
+template< class CollectionT>
+// Destructor:
+TrackerRawDataContainer< CollectionT>::~TrackerRawDataContainer()
+{
+}
+

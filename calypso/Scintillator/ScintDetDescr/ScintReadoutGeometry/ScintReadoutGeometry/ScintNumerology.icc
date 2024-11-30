@@ -1,0 +1,33 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+namespace ScintDD {
+
+
+inline int ScintNumerology::numStations() const
+{
+  return m_stationIds.size();
+}
+
+inline int ScintNumerology::numPlatesPerStation() const
+{
+  return m_numPlatesPerStation;
+}
+
+inline int ScintNumerology::numPmtsPerPlate() const
+{
+  return m_numPmtsPerPlate;
+}
+
+inline bool ScintNumerology::useStation(int station) const
+{
+  return (m_stationIds.count(station) > 0);
+}
+
+inline const std::set<int>& ScintNumerology::stationIds() const
+{
+  return m_stationIds;
+}
+
+} // End namespace

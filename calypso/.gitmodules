@@ -1,0 +1,3 @@
+[submodule "faser-common"]
+	   path = faser-common
+	   url = ../../faser/faser-common.git

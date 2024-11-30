@@ -1,0 +1,36 @@
+/*
+  Copyright (C) 2002-2020 CERN for the benefit of the ATLAS collaboration
+*/
+
+namespace Tracker
+{
+	// return width:
+	inline const FaserSiWidth&  TrackerCluster::width() const
+	{
+		return m_width;
+	}
+	// return globalPosition:
+	inline const Amg::Vector3D& TrackerCluster::globalPosition() const
+	{
+	return m_globalPosition;
+	}
+
+	inline const TrackerDD::SiDetectorElement* TrackerCluster::detectorElement() const
+	{
+		return m_detEl;
+	}
+
+	inline bool TrackerCluster::type(Trk::PrepRawDataType type) const
+	{
+  		return type == Trk::PrepRawDataType::SiCluster;
+	}
+    inline void
+    TrackerCluster::setDetectorElement(const TrackerDD::SiDetectorElement* detEl)
+    {
+        m_detEl = detEl;
+        if (m_detEl) {
+            m_globalPosition =
+            m_detEl->surface(identify()).localToGlobal(localPosition());
+        }
+    }
+}

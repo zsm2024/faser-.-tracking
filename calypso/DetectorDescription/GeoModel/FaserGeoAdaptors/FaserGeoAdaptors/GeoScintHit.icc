@@ -1,0 +1,84 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+#include "ScintSimEvent/ScintHit.h"
+#include "ScintReadoutGeometry/ScintDetectorElement.h"
+#include "ScintReadoutGeometry/VetoDetectorManager.h"
+#include "ScintReadoutGeometry/VetoNuDetectorManager.h"
+#include "ScintReadoutGeometry/TriggerDetectorManager.h"
+#include "ScintReadoutGeometry/PreshowerDetectorManager.h"
+#include "StoreGate/StoreGateSvc.h"
+#include "StoreGate/StoreGateSvc.h"
+#include "ScintIdentifier/VetoID.h"
+#include "ScintIdentifier/VetoNuID.h"
+#include "ScintIdentifier/TriggerID.h"
+#include "ScintIdentifier/PreshowerID.h"
+#include "GeoPrimitives/CLHEPtoEigenConverter.h"
+
+inline void GeoScintHit::init() {
+
+  ServiceHandle<StoreGateSvc> detStore ("DetectorStore", "GeoScintHit");
+  if (detStore.retrieve().isSuccess()) {
+    if(detStore->retrieve(s_veto,"Veto").isFailure())
+      s_veto = 0;
+    if(detStore->retrieve(s_vetonu,"VetoNu").isFailure())
+      s_vetonu = 0;
+    if(detStore->retrieve(s_trigger,"Trigger").isFailure())
+      s_trigger = 0;
+    if(detStore->retrieve(s_preshower,"Preshower").isFailure())
+      s_preshower = 0;
+    if(detStore->retrieve(s_vID,"VetoID").isFailure())
+      s_vID = 0;
+    if(detStore->retrieve(s_vnID,"VetoNuID").isFailure())
+      s_vnID = 0;
+    if(detStore->retrieve(s_tID,"TriggerID").isFailure())
+      s_tID = 0;
+    if(detStore->retrieve(s_pID,"PreshowerID").isFailure())
+      s_pID = 0;
+  }
+}
+
+inline GeoScintHit::GeoScintHit (const ScintHit & h) {
+  m_hit = &h;
+  if (!s_veto || ! s_trigger || ! s_preshower || ! s_vetonu) init();
+}
+
+inline HepGeom::Point3D<double> GeoScintHit::getGlobalPosition() const {
+
+  int Station = m_hit->getStation();
+  Identifier id;
+  const ScintDD::ScintDetectorElement *geoelement=NULL;
+  if (m_hit->isVeto()) {
+    id = s_vID->plate_id(Station,
+			m_hit->getPlate());
+    geoelement = s_veto->getDetectorElement(id);      
+  }
+  else if (m_hit->isVetoNu()) {
+    id = s_vnID->plate_id(Station,
+			m_hit->getPlate());
+    geoelement = s_vetonu->getDetectorElement(id);      
+  }
+  else if (m_hit->isTrigger()) {
+    id = s_tID->plate_id(Station,
+			m_hit->getPlate());
+    geoelement = s_trigger->getDetectorElement(id);      
+  } else {
+    id = s_pID->plate_id(Station,
+			m_hit->getPlate());
+    geoelement = s_preshower->getDetectorElement(id);      
+  }
+  
+  
+  if (geoelement) {
+
+    const HepGeom::Point3D<double> globalStartPos = Amg::EigenTransformToCLHEP(geoelement->transformHit()) * HepGeom::Point3D<double>(m_hit->localStartPosition());
+    
+    double x=globalStartPos.x();
+    double y=globalStartPos.y();
+    double z=globalStartPos.z();
+    return HepGeom::Point3D<double>(x,y,z);
+  }
+
+  return HepGeom::Point3D<double>(0.0,0.0,0.0);
+}

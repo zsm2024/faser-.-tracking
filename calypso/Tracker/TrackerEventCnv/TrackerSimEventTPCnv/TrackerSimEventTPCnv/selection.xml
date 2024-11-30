@@ -1,0 +1,7 @@
+<lcgdict>
+    <!-- FaserSiHits -->
+    <class name="FaserSiHit_p2" />
+    <class name="std::vector<FaserSiHit_p2>" />
+    <class name="FaserSiHitCollection_p3" id="FF9508DE-3E25-425D-9556-16D319DCE0E1" />     
+    <class name="FaserSiHitCollection_p3a" id="72FD9F51-AB1B-4DF7-B430-6CCAE0A994DB" />     
+</lcgdict>

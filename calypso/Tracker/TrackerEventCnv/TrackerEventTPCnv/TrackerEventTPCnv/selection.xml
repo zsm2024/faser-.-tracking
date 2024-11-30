@@ -1,0 +1,85 @@
+<lcgdict>
+
+    <!-- <class name="InDet::Track_tlp1" id="8380F7AC-4A8F-4382-95A5-1234E43D3B08" /> -->
+    <!-- <class name="Tracker::Track_tlp2" id="4E3778E2-1497-4F10-8746-AA02319FAC83" /> -->
+    <class name="Tracker::Track_tlp2" id="27491695-F64A-43EE-859D-73F33AF3317D" />
+
+    <!-- InDetRIO_OnTrack -->
+    <class name="Tracker::SiClusterOnTrack_p1" />
+    <class name="std::vector<Tracker::SiClusterOnTrack_p1>" /> 
+    <!-- <class name="InDet::SiClusterOnTrack_p2" /> -->
+    <!-- <class name="std::vector<InDet::SiClusterOnTrack_p2>" /> -->
+    <!-- <class name="InDet::PixelClusterOnTrack_p1" />
+    <class name="std::vector<InDet::PixelClusterOnTrack_p1>" />
+    <class name="InDet::PixelClusterOnTrack_p2" />
+    <class name="std::vector<InDet::PixelClusterOnTrack_p2>" />
+    <class name="InDet::SCT_ClusterOnTrack_p1" />
+    <class name="std::vector<InDet::SCT_ClusterOnTrack_p1>" /> -->
+    <class name="Tracker::FaserSCT_ClusterOnTrack_p2" />
+    <class name="std::vector<Tracker::FaserSCT_ClusterOnTrack_p2>" />
+    <!--
+    <class name="InDet::TRT_DriftCircleOnTrack_p1" />
+    <class name="std::vector<InDet::TRT_DriftCircleOnTrack_p1>" />
+    <class name="InDet::TRT_DriftCircleOnTrack_p2" />
+    <class name="std::vector<InDet::TRT_DriftCircleOnTrack_p2>" /> -->
+    
+    <!--InDetCompetingRIOsOnTrack -->
+    <!-- <class name="InDet::CompetingPixelClustersOnTrack_p1" />
+    <class name="std::vector<InDet::CompetingPixelClustersOnTrack_p1>" />
+    <class name="InDet::CompetingSCT_ClustersOnTrack_p1" />
+    <class name="std::vector<InDet::CompetingSCT_ClustersOnTrack_p1>" />
+    <class name="InDet::CompetingTRT_DriftCirclesOnTrack_p1" />
+    <class name="std::vector<InDet::CompetingTRT_DriftCirclesOnTrack_p1>" /> -->
+ 
+    
+    <!-- InDetPrepRawData -->
+    <class name="Tracker::TrackerCluster_p1" />
+    <class name="std::vector<Tracker::TrackerCluster_p1>" />
+    <!-- <class name="Tracker::FaserSCT_Cluster_p2" />
+    <class name="std::vector<Tracker::FaserSCT_Cluster_p2>" /> -->
+    <class name="Tracker::FaserSCT_Cluster_p3" />
+    <class name="std::vector<Tracker::FaserSCT_Cluster_p3>" />
+    <!-- <class name="InDet::SiWidth_p1" /> -->
+    <class name="Tracker::FaserSiWidth_p2" />
+    <!-- <class name="std::vector<InDet::SiWidth_p1>" /> -->
+    <!-- <class name="InDet::InDetPRD_Collection_p1" /> -->
+    <class name="Tracker::TrackerPRD_Collection_p2" />
+    <class name="Tracker::TrackerPRD_Container_p1" />
+    <class name="std::vector<Tracker::TrackerPRD_Collection_p1>" />
+    <class name="std::vector<Tracker::TrackerPRD_Collection_p2>" />
+    <class name="std::vector<Tracker::TrackerPRD_Container_p1>" />
+    <!-- <class name="InDet::PixelCluster_p1" />
+    <class name="InDet::PixelCluster_p2" />
+    <class name="InDet::PixelCluster_p3" />
+    <class name="std::vector<InDet::PixelCluster_p1>" />
+    <class name="std::vector<InDet::PixelCluster_p2>" />
+    <class name="std::vector<InDet::PixelCluster_p3>" />
+    <class name="InDet::PixelClusterContainer_tlp1" id="9DB54746-8C4E-4A56-8B4C-0E5D42905218" />
+    <class name="InDet::PixelClusterContainer_p2" id="DE48E26B-9E03-4EAD-86B9-351AD88D060E" />
+    <class name="InDet::PixelClusterContainer_p3" id="7BF0F163-B227-434C-86A6-16130E005E6C" /> -->
+    <class name="Tracker::FaserSCT_Cluster_p1" />
+    <class name="std::vector<Tracker::FaserSCT_Cluster_p1>" />
+    <class name="Tracker::FaserSCT_ClusterContainer_tlp1" id="5EF374F6-EA93-4739-9ECE-FBBA9C928818" />
+    <!-- <class name="InDet::SCT_ClusterContainer_p2" id="ECE7D831-0F31-4E6F-A6BE-2ADDE90083BA" /> -->
+    <class name="Tracker::FaserSCT_ClusterContainer_p3" id="42921F1E-8D65-4DBF-B309-6510794E05E0" />
+    <!-- <class name="InDet::TRT_DriftCircle_p1" />
+    <class name="std::vector<InDet::TRT_DriftCircle_p1>" />
+    <class name="InDet::TRT_DriftCircle_p2" />
+    <class name="std::vector<InDet::TRT_DriftCircle_p2>" />
+    <class name="InDet::TRT_DriftCircleContainer_p2" id="36195EDE-941C-424B-81A1-E04C867C35D8" />
+    <class name="InDet::TRT_DriftCircleContainer_tlp1" id="42B48D79-AF4E-4D45-AAA9-A2BA5A033534" /> -->
+
+    <!-- <class name="InDet::PixelGangedClusterAmbiguities_p1" id="FE36CE7E-EADF-481F-A55A-26DA0030DFAA"/> -->
+<!--    <class name="uint32_t" /> -->
+<!--    <class name="std::vector<uint32_t>" />  -->
+<!--    <class name="std::pair<unsigned int,std::vector<unsigned int> >" />  -->
+    <class name="std::vector< std::pair<unsigned int, std::vector<unsigned int> > >" /> 
+
+    <!-- FaserSCT_SpacePoint -->
+    <class name="FaserSCT_SpacePoint_p0" />
+    <class name="std::vector<FaserSCT_SpacePoint_p0>" />
+    <class name="FaserSCT_SpacePointCollection_p0" />
+    <class name="std::vector<FaserSCT_SpacePointCollection_p0>" />
+    <class name="FaserSCT_SpacePointContainer_p0" id="DB0397F9-A163-496F-BC17-C7E507A1FA50" />
+
+</lcgdict>

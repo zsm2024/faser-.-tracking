@@ -1,0 +1,12 @@
+{
+"name" : "DarkPhotonGrid13p6b",
+"model" : "DarkPhoton",
+"pid1" : 11,
+"pid2" : -11,
+"nevents" : 50000,
+"nrun" : 110056,
+"samples" : {
+	"3e-06" : [0.0398]
+   }
+}
+

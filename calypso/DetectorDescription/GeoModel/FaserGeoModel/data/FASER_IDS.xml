@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE IdDict SYSTEM "IdDict.dtd" [
+  <!ENTITY Neutrino                SYSTEM "IdDictNeutrino.xml">
+  <!ENTITY Scintillator            SYSTEM "IdDictScintillator.xml">
+  <!ENTITY Tracker                 SYSTEM "IdDictTracker.xml">
+  <!ENTITY Calorimeter             SYSTEM "IdDictCalorimeter.xml">
+  <!ENTITY FASER                   SYSTEM "IdDictFASER.xml">
+]>
+
+<IdDict IdDictVersion="v1">
+
+&Neutrino;
+&Scintillator;
+&Tracker;
+&Calorimeter;
+&FASER;
+
+</IdDict>
+

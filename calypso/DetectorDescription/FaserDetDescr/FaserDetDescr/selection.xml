@@ -1,0 +1,5 @@
+<lcgdict>
+  <enum pattern="FaserDetDescr::*"/>
+  <class name="FaserDetDescr::ROOT6_NamespaceAutoloadHook" />   
+  <class name="FaserDetectorID" />
+</lcgdict>

@@ -1,0 +1,19 @@
+<IdDictionary name="Neutrino" version="FASERNU-04-730">
+
+  <field name="part">
+    <label name="Emulsion" value="1" />
+  </field>
+
+  <field name="film">
+    <label name="Upstream" value="0" />
+    <label name="Downstream" value="1" />
+  </field>
+
+  <region>
+    <range field="part" value="Emulsion" />
+    <range field="module" minvalue="0" maxvalue="72" />
+    <range field="base" minvalue="0" maxvalue="9" />
+    <range field="film" values="Upstream Downstream" />
+  </region>
+
+</IdDictionary>

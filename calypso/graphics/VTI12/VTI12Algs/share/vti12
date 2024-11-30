@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+# Copyright (C) 2002-2024 CERN for the benefit of the ATLAS collaboration
+
+# Simple wrapper to call actual VP1AlgConfig.SetupVP1() function
+
+intro_text = """
+******************************************
+
+ ___      ___ ________    _____     
+|\  \    /  /|\   __  \  / __  \    
+\ \  \  /  / | \  \|\  \|\/_|\  \   
+ \ \  \/  / / \ \   ____\|/ \ \  \  
+  \ \    / /   \ \  \___|    \ \  \ 
+   \ \__/ /     \ \__\        \ \__\ 
+    \|__|/       \|__|         \|__|
+                                    
+                                    
+Launching VP1 - the ATLAS 3D event display
+
+******************************************
+
+*IMPORTANT*: VP1 has now been migrated to use ComponentAccumulator. 
+At the same time, we have tried to simplify the configuration of VP1.
+If you have any problems, or if you needed some of the removed configuration options,
+please contact us on the JIRA ticket:
+https://its.cern.ch/jira/browse/ATLASRECTS-7853
+
+******************************************
+
+"""
+print(intro_text)
+
+from VTI12Algs.VTI12AlgConfig import SetupVTI12
+SetupVTI12()
+import sys
+sys.exit()

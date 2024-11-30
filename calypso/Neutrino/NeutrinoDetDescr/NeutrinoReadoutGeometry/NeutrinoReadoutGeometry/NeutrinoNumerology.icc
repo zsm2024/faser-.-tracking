@@ -1,0 +1,33 @@
+/*
+  Copyright (C) 2002-2017 CERN for the benefit of the ATLAS collaboration
+*/
+
+namespace NeutrinoDD {
+
+
+inline int NeutrinoNumerology::numModules() const
+{
+  return m_moduleIds.size();
+}
+
+inline int NeutrinoNumerology::numBasesPerModule() const
+{
+  return m_numBasesPerModule;
+}
+
+inline int NeutrinoNumerology::numFilmsPerBase() const
+{
+  return m_numFilmsPerBase;
+}
+
+inline bool NeutrinoNumerology::useModule(int module) const
+{
+  return (m_moduleIds.count(module) > 0);
+}
+
+inline const std::set<int>& NeutrinoNumerology::moduleIds() const
+{
+  return m_moduleIds;
+}
+
+} // End namespace

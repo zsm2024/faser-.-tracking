@@ -1,0 +1,8 @@
+[defaults]
+
+dbarea = /cvmfs/faser.cern.ch/repo/sw/database
+envvarsNotSet = ATLAS_RELEASEDATA,ATLAS_POOLCOND_PATH
+
+[prolog.sh]
+export ATLAS_RELEASEDATA=/cvmfs/faser.cern.ch/repo/sw/software/22.0/faser/offline/ReleaseData
+export ATLAS_POOLCOND_PATH=/cvmfs/faser.cern.ch/repo/sw/database/DBRelease/current

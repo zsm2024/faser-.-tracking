@@ -1,0 +1,13 @@
+{
+    "file_length": 1000,
+    "mass": 139.6,
+    "maxE": 100.0,
+    "minE": 100.0,
+    "pid":  [211, -211],
+    "radius": -100.0,
+    "run": 121101,
+    "sampler": "const",
+    "segment": 0,
+    "short": "MDC_PG_pion_100GeV",
+    "zpos": -1000.0
+}

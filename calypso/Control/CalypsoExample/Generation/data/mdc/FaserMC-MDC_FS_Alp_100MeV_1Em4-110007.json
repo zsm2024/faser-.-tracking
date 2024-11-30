@@ -1,0 +1,14 @@
+{
+    "run": 110007,
+    "segment": 0,
+    "file_length": 100,
+    "model": "DarkPhoton",
+    "model_path": "/eos/experiment/faser/gen/ForeseeMDC/ALP-W/npy/events_14TeV_m0.1GeV_c0.0001to_22_22.npy",
+    "short": "MDC_FS_Alp_100MeV_1Em4",
+    "tag": null,
+    "pid": [
+        22,
+        22
+    ],
+    "mass": 100.0
+}

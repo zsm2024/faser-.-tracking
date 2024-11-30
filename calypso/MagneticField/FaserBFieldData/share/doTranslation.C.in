@@ -1,0 +1,6 @@
+#include "${CMAKE_CURRENT_SOURCE_DIR}/share/translateBFieldMap.C"
+void doTranslation()
+{
+    // could not get this to work directly on root the command line
+    translateBFieldMap("${CMAKE_CURRENT_SOURCE_DIR}/data/FieldTable.csv","${CMAKE_BINARY_DIR}/data/MagneticFieldMaps/FaserFieldTable.root",1.0,1.0);
+}
